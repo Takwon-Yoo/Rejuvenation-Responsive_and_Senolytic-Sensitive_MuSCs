@@ -32,6 +32,11 @@ def sc_violin(adata, key=None, multi_panal=True, groupby=None, save='.png'):
     return None
 
 
+def sc_hvg(adata, save='.png'):
+    sc.pl.highly_variable_genes(adata, save=save)
+    return None
+
+
 def sc_matrixplot(adata, var_names, groupby='louvain_0.5', swap_axes=False, save='.png', dendrogram=False, vmax=2):
     sc.pl.matrixplot(adata, var_names=var_names, groupby=groupby, swap_axes=swap_axes, save=save,
                      dendrogram=dendrogram, vmax=vmax)

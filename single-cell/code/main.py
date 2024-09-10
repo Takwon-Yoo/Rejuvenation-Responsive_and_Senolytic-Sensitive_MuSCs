@@ -43,6 +43,7 @@ def preprocess_BD_data():
     """
     2. data preprocessing (filter & normalize, BD)
     """
+    os.chdir('./')
     adata = sc.read_h5ad('./adata_combined.h5ad')
     adata.var['mt'] = adata.var_names.str.startswith(f'mt-')
     sc.pp.calculate_qc_metrics(adata, qc_vars=['mt'], percent_top=None, inplace=True)

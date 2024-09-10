@@ -1,5 +1,5 @@
 from base import *
-from plotting import sc_violin, sc_scatter_with_line, sc_pca_variance_ratio, sc_umap
+from plotting import sc_violin, sc_scatter_with_line, sc_pca_variance_ratio, sc_umap, sc_hvg
 
 
 def check_min_max_adata(adata):
@@ -48,11 +48,12 @@ def normalize(adata, target_sum=1e6):
     return adata
 
 
-def finding_hvg(adata, hvg_num=2000, flavor='seurat'):
+def finding_hvg(adata, hvg_num=2000, flavor='seurat', save='.png'):
     # n_top_genes(hvg_num): specific number or None(default)
     sc.pp.highly_variable_genes(adata, n_top_genes=hvg_num, flavor=flavor)
     print(f"detected {np.sum(adata.var['highly_variable'])} highly variable genes")
     print("=" * 100)
+    sc_hvg(adata, save=save)
     return adata
 
 
