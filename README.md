@@ -16,5 +16,12 @@ pip install numpy==1.23.5 pandas==2.0.0 matplotlib==3.5.2
 pip install anndata==0.8.0 scanpy==1.9.3 harmonypy==0.0.9
 ```
 
+## How to Run
+The main analysis script is 'single-cell/code/main.py'.
+You can run specific analysis steps or generate figures by specifying the function name as a command-line argument.
+
+**Example:**
+python single-cell/code/main.py concat_BD_data
+
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details
