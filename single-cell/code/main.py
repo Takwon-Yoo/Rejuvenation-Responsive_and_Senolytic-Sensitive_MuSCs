@@ -230,3 +230,12 @@ def BD_10x_trajectory_inference_analysis():
         legend_fontsize=12, fontsize=12, frameon=False, edges=True, save=True)
     adata.write('./adata_BD_10x_trajectory.h5ad')
     return None
+
+
+MODE = sys.argv[1]
+PARAM = sys.argv[2:]
+if __name__ == '__main__':
+    if MODE in locals().keys():
+        locals()[MODE](*PARAM)
+    else:
+        sys.exit('error: cmd=%s' % MODE)
